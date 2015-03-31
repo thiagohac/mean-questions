@@ -1,0 +1,48 @@
+<div class="row">
+
+    <div class="col-md-1 col-md-offset-1">
+        <div class="col-md-1">
+            <span class="badge badge-info">{{answer.totalVotes}}</span>
+        </div>
+        <div class="col-md-1">
+            <div class="vote up">
+                <span data-ng-show="isVoted(answer)">
+                    <span class="glyphicon glyphicon-chevron-up setasMedia"></span>
+                </span>
+                <span data-ng-hide="isVoted(answer)">
+                    <span  data-ng-click="voteAnswer(answer, 1)" class="glyphicon glyphicon-chevron-up link setasMedia"/>
+                </span>
+            </div>
+            <div class="vote down">
+                <span data-ng-show="isVoted(answer)">
+                    <span class="glyphicon glyphicon-chevron-down setasMedia"></span>
+                </span>
+                <span data-ng-hide="isVoted(answer)">
+                    <span data-ng-click="voteAnswer(answer, 0)" class="glyphicon glyphicon-chevron-down link setasMedia"/>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <small>
+            <em class="text-muted">Postado em {{answer.created | date:'medium'}} por {{answer.user.displayName}}</em>
+        </small>
+        <p>
+            {{answer.content}}
+        </p>
+    </div>
+
+
+
+    <div  class="col-md-1 col-md-1-metade">
+        <div class="pull-right" data-ng-show="authentication.user._id == answer.user._id">
+            <a class="btn btn-default btn-xs"  data-ng-click="removeAnswer(answer);">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<br>
+<!--p> {{ answer._id | json}}</p-->

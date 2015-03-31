@@ -1,0 +1,31 @@
+<section data-ng-controller="QuestionsController">
+    <div class="page-header">
+        <h1>Nova Pergunta</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="title">Título</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="Título" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="content">Conteúdo</label>
+                    <div class="controls">
+                        <textarea data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Conteúdo" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Criar" class="btn btn-default">
+                </div>
+
+                <div data-ng-show="error" class="text-danger">
+                    <strong>{{error}}</strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

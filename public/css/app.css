@@ -1,0 +1,81 @@
+.content {
+    margin-top: 50px;
+}
+.undecorated-link:hover {
+    text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+@media (min-width: 992px) {
+    .nav-users {
+        position: fixed;
+    }
+}
+
+.remove-account-container {
+    display: inline-block;
+    position: relative;
+}
+
+.btn-remove-account {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+
+a.undecorated-link:hover {
+    text-decoration: none;
+}
+
+
+span.setasGrande  {
+    font-size: 1.8em;
+}
+
+span.setasMedia  {
+    font-size: 1.0em;
+}
+
+span.glyphicon-chevron-up  {
+    padding-left: 2px;
+}
+
+span.link {
+    color: #428bca;
+    cursor: pointer;
+}
+
+.badge-info {
+    color: #fff;
+    background-color: #5bc0de;
+}
+
+.linkSemDecoracao {
+    text-decoration: none !important;
+}
+
+.preto {
+    color: #000
+}
+
+.col-md-offset-1-metade {
+    margin-left: 4.33333333%;
+}
+
+.col-md-1-metade {
+    width: 4.33333333%;
+}
+
+.linkBadge {
+    text-decoration: none !important;
+    color: #fff !important;;
+}
+
+.hoverBadge:hover {
+    text-decoration: none
+    color: #fff;
+    background-color: #39b3d7;
+}

@@ -1,0 +1,18 @@
+<section data-ng-controller="HomeController">
+
+    <div class="jumbotron">
+        <h1>Q&A Questões</h1>
+        <p class="lead">Faça perguntas e tire dúvidas. Conhecimento verdadeiro é conhecimento partilhado!</p>
+
+        <div data-ng-if="!authentication.user">
+            <a class="btn btn-primary"  role="button" href="/#!/users/signup">Registre</a> ou
+            <a class="btn btn-primary" href="/#!/users/signin">Entre</a>
+        </div>
+
+        <div data-ng-if="authentication.user">
+            <h3>Bem-vindo, {{authentication.user.displayName}}!</h3>
+            <a href="/users/signout">Sair</a>
+        </div>
+    </div>
+
+</section>

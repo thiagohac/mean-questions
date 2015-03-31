@@ -1,0 +1,45 @@
+<div class="container" data-ng-controller="HomeController">
+	<div class="navbar-header">
+		<a href="/#!/" class="navbar-brand">Q&A Questões</a>
+	</div>
+
+	<nav class="collapse navbar-collapse" role="navigation">
+		<ul class="nav navbar-nav" data-ng-if="authentication.user">
+            <li ui-route="/questions" ng-class="{active: $uiRoute}">
+                <a href="/#!/questions">Todas Questões</a>
+            </li>
+            <li ui-route="/questions/unanswered" ng-class="{active: $uiRoute}">
+                <a href="/#!/questions/unanswered">Questões Não Respondidas</a>
+            </li>
+            <li ui-route="/questions/byUser" ng-class="{active: $uiRoute}">
+                <a href="/#!/questions/byUser">Questões Criadas</a>
+            </li>
+            <li ui-route="/questions/favorite" ng-class="{active: $uiRoute}">
+                <a href="/#!/questions/favorite">Questões Favoritas</a>
+            </li>
+            <li ui-route="/questions/create" ng-class="{active: $uiRoute}">
+                <a href="/#!/questions/create">Criar Questão</a>
+            </li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
+			<li ui-route="/users/signup" ng-class="{active: $uiRoute}">
+				<a href="/#!/users/signup">Registrar</a>
+			</li>
+			<li class="divider-vertical"></li>
+			<li ui-route="/users/signin" ng-class="{active: $uiRoute}">
+				<a href="/#!/users/signin">Entrar</a>
+			</li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
+            <li>
+                <a>{{authentication.user.displayName}}</a>
+            </li>
+            <li>
+                <a href="/users/signout">Sair</a>
+            </li>
+
+		</ul>
+	</nav>
+</div>

@@ -1,0 +1,84 @@
+<section data-ng-controller="QuestionsController" data-ng-init="findOne()">
+    <div>
+        <div class="page-header">
+            <h1>{{question.title}}</h1>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-2">
+                <div class="col-sm-6">
+                    <div class="list-group">
+                        <a class="btn preto linkSemDecoracao " data-ng-show="isFavorited()" data-ng-click="removeFavorite()">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <h5 class="list-group-item-heading"> Favorito</h5>
+                        </a>
+                        <a class="btn preto linkSemDecoracao" data-ng-hide="isFavorited()" data-ng-click="addFavorite()">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <h5 class="list-group-item-heading"> Favorito</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <span class="badge badge-info">{{question.totalVotes}}</span><!-- label label-info -->
+                </div>
+                <div class="col-sm-1">
+                    <div class="vote up">
+                        <span data-ng-show="isVoted(question)">
+                            <span class="glyphicon glyphicon-chevron-up setasGrande"></span>
+                        </span>
+                        <span data-ng-hide="isVoted(question)">
+                            <span data-ng-click="vote(1)" class="glyphicon glyphicon-chevron-up link setasGrande"/>
+                        </span>
+                    </div>
+                    <div class="vote down">
+                        <span data-ng-show="isVoted(question)">
+                            <span class="glyphicon glyphicon-chevron-down setasGrande"></span>
+                        </span>
+                        <span data-ng-hide="isVoted(question)">
+                            <span data-ng-click="vote(0)" class="glyphicon glyphicon-chevron-down link setasGrande"/>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div  class="col-md-8">
+                <small>
+                    <em class="text-muted">Postado em {{question.created | date:'medium'}} por {{question.user.displayName}}</em>
+                </small>
+                <p class="lead">
+                    {{question.content}}
+                </p>
+            </div>
+
+            <div  class="col-md-2">
+                <div class="pull-right" data-ng-show="authentication.user._id == question.user._id">
+                    <a class="btn btn-default " href="/#!/questions/{{question._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-default " data-ng-click="remove();">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTAGEM DE RESPOSTAS -->
+    <div >
+        <div data-ng-repeat="answer in question.answers track by $index">
+            <!--list-answer> </list-answer-->
+            <div data-ng-include="'/views/list-answer.client.view.html'"></div>
+        </div>
+    </div>
+
+    <!-- CRIAR RESPOSTA -->
+
+    <div class="col-md-offset-1" data-ng-include="'/views/create-answer.client.view.html'"></div>
+
+    <div data-ng-show="error" class="text-center text-danger">
+        <strong>{{error}}</strong>
+    </div>
+</section>
